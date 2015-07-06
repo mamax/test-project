@@ -1,0 +1,80 @@
+{% extends "products/base.html" %}
+{% load static from staticfiles %}
+{% block meta_title %}Додати продукт{% endblock meta_title %}
+{% block title %}Додати продукт{% endblock title %}
+{% block status_message %}
+  {% if errors %}
+      <div class="alert alert-warning" role="alert">
+        Будь-ласка, виправте наступні помилки
+      </div>
+  {% endif %}
+{% endblock status_message %}
+
+{% block content %}
+
+<form action="." method="post" enctype="multipart/form-data"
+      role="form" class="form-horizontal">
+  {% csrf_token %}
+
+  <div class="form-group {% if errors.first_name %}has-error{% endif %}">
+    <label for="first_name" class="col-sm-2 control-label">Назва*</label>
+    <div class="col-sm-10">
+      <input type="text" value="{{ request.POST.first_name }}"
+             name="first_name" id="first_name"
+             placeholder="Введіть назву"
+             class="form-control" />
+      <span class="help-block">{{ errors.first_name }}</span>
+    </div>
+  </div>
+  <div class="form-group {% if errors.slug %}has-error{% endif %}">
+    <label for="slug" class="col-sm-2 control-label">Назва-мітка*</label>
+    <div class="col-sm-10">
+      <input type="text" value="{{ request.POST.slug }}"
+             name="slug" id="slug"
+             placeholder="Введіть назва-мітка"
+             class="form-control" />
+      <span class="help-block">{{ errors.slug }}</span>
+    </div>
+  </div>
+  <div class="form-group {% if errors.description %}has-error{% endif %}">
+    <label for="description"class="col-sm-2 control-label">Опис</label>
+    <div class="col-sm-10">
+      <input type="text" value="{{ request.POST.description }}"
+             name="description" id="description"
+             placeholder="Введіть опис"
+             class="form-control" />
+      <span class="help-block">{{ errors.description }}</span>
+    </div>
+  </div>
+  <div class="form-group {% if errors.created_at %}has-error{% endif %}">
+    <label for="created_at"class="col-sm-2 control-label">Дата створення*</label>
+    <div class="col-sm-10">
+      <input type="text" value="{{ request.POST.created_at }}"
+             name="created_at" id="created_at"
+             placeholder="Напр. June 16, 2015"
+             class="form-control" />
+      <span class="help-block">{{ errors.created_at }}</span>
+    </div>
+  </div>
+  <div class="form-group {% if errors.price %}has-error{% endif %}">
+    <label for="price"class="col-sm-2 control-label">Ціна*</label>
+    <div class="col-sm-10">
+      <input type="text" value="{{ request.POST.price }}"
+             name="price" id="price"
+             placeholder="Напр. 17.8"
+             class="form-control" />
+      <span class="help-block">{{ errors.price }}</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label"></label>
+    <div class="col-sm-10">
+      <input type="submit" value="Додати" name="add_button"
+             class="btn btn-primary" />
+      <button type="submit" name="cancel_button"
+              class="btn btn-link">Скасувати</button>
+    </div>
+  </div>
+</form>
+
+{% endblock content %}

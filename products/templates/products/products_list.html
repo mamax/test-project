@@ -1,0 +1,58 @@
+{% extends "products/base.html" %}
+{% load static from staticfiles %}
+{% block meta_title %}База продуктів{% endblock meta_title %}
+{% block title %}База продуктів{% endblock title %}
+
+{% block content %}
+            <!-- add products button-->
+               <div class="col-xs-8">
+               </div>
+                <div class="col-xs-4">
+{#                   <a class="btn btn-primary" href="{% url "products_add" %}">Додати Продукт</a>#}
+               </div>
+                <!-- Start Students Listing -->
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th><a href="#">No</a></th>
+                        <th><a href="{% url "products" %}?order_by=first_name{% if request.GET.order_by == 'first_name' and request.GET.reverse != '1' %}&amp;reverse=1 {% endif %}"> Назва продукту {% if request.GET.order_by == 'first_name' and request.GET.reverse != '1' %}&uarr;{% elif request.GET.order_by == 'first_name' and request.GET.reverse == '1' %}&darr;{% endif %}</a></th>
+
+                        <th><a href="{% url "products" %}?order_by=description">Опис{% if request.GET.order_by == 'description' %}&uarr;{% endif %}</a></th>
+
+                        <th><a href="{% url "products" %}?order_by=price{% if request.GET.order_by == 'price' and request.GET.reverse != '1' %}&amp;reverse=1{% endif %}">Ціна{% if request.GET.order_by == 'price' and request.GET.reverse != '1' %}&uarr;{% elif request.GET.order_by == 'price' and request.GET.reverse == '1' %}&darr;{% endif %}</a></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><a title="Редагувати" href="{% url "products_edit" product.id %}">{{ product.first_name }}</a>
+                        </td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ product.price }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+           {% if products.has_other_pages %}
+                {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+                <nav>
+                  <ul class="pagination">
+                    <li>
+                      <a href="{% url "products" %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a>
+                    </li>
+                    {% for p in products.paginator.page_range %}
+                    <li {% if products.number == p %}class="active"{% endif %}>
+                      <a href="{% url "products" %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
+                    </li>
+                    {% endfor %}
+                    <li>
+                      <a href="{% url "products" %}?page={{ products.paginator.num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">
+                        &raquo;</a>
+                    </li>
+                  </ul>
+                </nav>
+                {% endwith %}
+           {% endif %}
+{% endblock content %}
