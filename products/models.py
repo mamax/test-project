@@ -34,7 +34,7 @@ class Product(models.Model):
     created_at = models.DateField(
         blank=False,
         verbose_name=u"Дата створення",
-        default='datetime.date.today')
+        )
 
     modified_at = models.DateField(
         blank=True,
