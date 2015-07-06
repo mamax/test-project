@@ -82,11 +82,12 @@ DATABASES = {
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'products_db',
         'USER': 'products_db_user',
         'PASSWORD': 'gtnhjdbx',
-        'NAME': 'products_db',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
