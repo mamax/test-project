@@ -1,4 +1,4 @@
-"""productsdb URL Configuration
+"""productdb URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from products.views import ProductUpdateView
 
 urlpatterns = [
+
+    url(r'^$', 'products.views.home', name='home'),
+
+    # Products urls
+    url(r'^products/$', 'products.views.products_list', name='products'),
+    url(r'^products/add$', 'products.views.products_add', name='products_add'),
+    url(r'^products/(?P<pk>\d+)/edit/$', ProductUpdateView.as_view(), name='products_edit'),
+
     url(r'^admin/', include(admin.site.urls)),
+
 ]
