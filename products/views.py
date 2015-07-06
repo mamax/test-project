@@ -14,9 +14,6 @@ from .models import Product
 def home(request):
     return render(request, 'products/index.html', {})
 
-def products_proc(request):
-    return render()
-
 def products_list(request):
     products = Product.objects.all()
 
@@ -45,71 +42,73 @@ def products_list(request):
 
 def products_add(request):
     # was form posted?
-    # if request.method == "POST":
-    #     # was form add button clicked?
-    #     if request.POST.get('add_button') is not None:
-    #         # errors collection
-    #         errors = {}
-    #
-    #         # data for student object
-    #         data = {'modified_at': request.POST.get('modified_at')}
-    #         # data = {'middle_name': request.POST.get('middle_name'),
-    #         #     'notes': request.POST.get('notes')}
-    #
-    #         # validate user input
-    #         first_name = request.POST.get('first_name', '').strip()
-    #         if not first_name:
-    #             errors['first_name'] = u"Назва є обов'язковим"
-    #         else:
-    #             data['first_name'] = first_name
-    #
-    #         slug = request.POST.get('slug', '').strip()
-    #         if not slug:
-    #             errors['slug'] = u"Назва-мітка є обов'язковим"
-    #         else:
-    #             data['slug'] = slug
-    #
-    #         created_at = request.POST.get('created_at', '').strip()
-    #         if not created_at:
-    #             errors['created_at'] = u"Дата створення"
-    #         else:
-    #             try:
-    #                 datetime.strptime(created_at, '%M %d %Y')
-    #             except Exception:
-    #                 errors['created_at'] = u"Введіть коректний формат дати (напр. June 16, 2015)"
-    #             else:
-    #                 data['created_at'] = created_at
-    #
-    #         price = request.POST.get('price', '').strip()
-    #         if not price:
-    #             errors['price'] = u"Ціна  є обов'язкова"
-    #         else:
-    #             data['price'] = price
-    #
-    #         # save product
-    #         if not errors:
-    #             product = Product(**data)
-    #             product.save()
-    #
-    #             # redirect to products list
-    #             return HttpResponseRedirect(
-    #                 u'%s?status_message=Продукта успішно додано!' %
-    #                 reverse('products_list'))
-    #         else:
-    #             # render form with errors and previous user input
-    #             return render(request, 'products/products_add.html',
-    #                 {'product': Product.objects.all().order_by('first_name'),
-    #                  'errors': errors})
-    #     elif request.POST.get('cancel_button') is not None:
-    #         # redirect to home page on cancel button
-    #         return HttpResponseRedirect(
-    #             u'%s?status_message=Додавання Продукта скасовано!' %
-    #             reverse('products_list'))
-    # else:
-    #     # initial form render
-    #     'products': Product.objects.all().order_by('first_name')
+    if request.method == "POST":
+        # was form add button clicked?
+        if request.POST.get('add_button') is not None:
+            # errors collection
+            errors = {}
 
-        return render(request, 'products/products_add.html', {})
+            # data for product object
+            data = {'modified_at': request.POST.get('modified_at')}
+            # data = {'middle_name': request.POST.get('middle_name'),
+            #     'notes': request.POST.get('notes')}
+
+            # validate user input
+            first_name = request.POST.get('first_name', '').strip()
+            if not first_name:
+                errors['first_name'] = u"Назва є обов'язковим"
+            else:
+                data['first_name'] = first_name
+
+            slug = request.POST.get('slug', '').strip()
+            if not slug:
+                errors['slug'] = u"Назва-мітка є обов'язковим"
+            else:
+                data['slug'] = slug
+
+            description = request.POST.get('description', '').strip()
+            if not description:
+                errors['description'] = u"Опис є обов'язковим"
+            else:
+                data['description'] = slug
+
+            created_at = request.POST.get('created_at', '').strip()
+            if not created_at:
+                errors['created_at'] = u"Дата створення"
+            else:
+                try:
+                    datetime.strptime(created_at, '%Y-%m-%d')
+                except Exception:
+                    errors['created_at'] = u"Введіть коректний формат дати (Напр. 2015-07-06)"
+                else:
+                    data['created_at'] = created_at
+
+            price = request.POST.get('price', '').strip()
+            if not price:
+                errors['price'] = u"Ціна  є обов'язкова"
+            else:
+                data['price'] = price
+
+            # save product
+            if not errors:
+                product = Product(**data)
+                product.save()
+
+                # redirect to products list
+                return HttpResponseRedirect(
+                    u'%s?status_message=Продукт успішно додано!' % reverse('products'))
+            else:
+                # render form with errors and previous user input
+                return render(request, 'products/products_add.html',
+                              {'product': Product.objects.all().order_by('first_name'), 'errors': errors})
+        elif request.POST.get('cancel_button') is not None:
+            # redirect to home page on cancel button
+            return HttpResponseRedirect(
+                u'%s?status_message=Додавання Продукта скасовано!' % reverse('products'))
+    else:
+        # initial form render
+
+        return render(request, 'products/products_add.html', {'products':Product.objects.all().order_by('first_name')})
 
 
 # class ProductUpdateForm(ModelForm):
