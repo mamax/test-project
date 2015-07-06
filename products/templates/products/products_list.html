@@ -30,6 +30,18 @@
                         </td>
                         <td>{{ product.description }}</td>
                         <td>{{ product.price }}</td>
+                        <td>
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-default dropdown-toggle"
+                                      data-toggle="dropdown">Дія
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="{% url "products_edit" product.id %}">Редагувати</a></li>
+                                <li><a href="{% url "products_delete" product.id %}">Видалити</a></li>
+                              </ul>
+                            </div>
+                        </td>
                     </tr>
                     {% endfor %}
                     </tbody>

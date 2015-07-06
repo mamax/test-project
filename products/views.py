@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.forms import ModelForm
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, DeleteView
 from .models import Product
 
 # Create your views here.
@@ -111,11 +111,6 @@ def products_add(request):
         return render(request, 'products/products_add.html', {'products':Product.objects.all().order_by('first_name')})
 
 
-# class ProductUpdateForm(ModelForm):
-#     class Meta:
-#         model = Product
-#         fields = ['first_name', 'slug', 'description', 'price', 'created_at', 'modified_at']
-
 class ProductUpdateView(UpdateView):
     model = Product
     template_name = 'products/products_edit.html'
@@ -130,3 +125,21 @@ class ProductUpdateView(UpdateView):
                 u'%s?status_message=Редагування продукта відмінено!' % reverse('products'))
         else:
             return super(ProductUpdateView, self).post(request, *args, **kwargs)
+
+# def products_delete(request):
+#     return HttpResponse(<p>'delete product'</p>)
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    template_name = 'products/products_confirm_delete.html'
+
+    def get_success_url(self):
+        return u'%s?status_message=Продукт успішно видалено!' \
+            % reverse('products')
+
+    # def post(self, request, *args, **kwargs):
+    #     if request.POST.get('cancel_button'):
+    #         return HttpResponseRedirect(
+    #             u'%s?status_message=Видалення продукта відмінено!' % reverse('products'))
+    #     else:
+    #         return super(ProductUpdateView, self).post(request, *args, **kwargs)
