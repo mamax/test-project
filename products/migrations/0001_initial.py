@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(verbose_name='\u041a\u043e\u0440\u043e\u0442\u043a\u0430 \u043d\u0430\u0437\u0432\u0430-\u043c\u0456\u0442\u043a\u0430')),
                 ('description', models.CharField(max_length=256, verbose_name='\u041e\u043f\u0438\u0441')),
                 ('price', models.FloatField(verbose_name='\u0426\u0456\u043d\u0430')),
-                ('created_at', models.DateField(default=b'datetime.date.today', verbose_name='\u0414\u0430\u0442\u0430 \u0441\u0442\u0432\u043e\u0440\u0435\u043d\u043d\u044f')),
+                ('created_at', models.DateField(verbose_name='\u0414\u0430\u0442\u0430 \u0441\u0442\u0432\u043e\u0440\u0435\u043d\u043d\u044f')),
                 ('modified_at', models.DateField(null=True, verbose_name='\u0414\u0430\u0442\u0430 \u0437\u043c\u0456\u043d\u0435\u043d\u043d\u044f', blank=True)),
             ],
             options={
