@@ -27,19 +27,22 @@ class Product(models.Model):
         verbose_name=u"Опис"
     )
 
-    price = models.FloatField(
+    price = models.DecimalField(
+        max_digits=5,
+        decimal_places=2,
         blank=False,
         verbose_name=u"Ціна")
 
     created_at = models.DateField(
+        auto_now_add=True,
         blank=False,
         verbose_name=u"Дата створення",
         )
 
     modified_at = models.DateField(
+        auto_now=True,
         blank=True,
         verbose_name=u"Дата змінення",
-        null=True
         )
 
     def __unicode__(self):
