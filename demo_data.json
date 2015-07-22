@@ -57,83 +57,83 @@
 },
 {
     "fields": {
-        "expire_date": "2015-07-20T08:13:12.442Z",
-        "session_data": "YzdhN2UyNjU0YjQ2ZjZlYTQwODdkZTg0NTE1OGRjZjU3ODkxYTExNzp7Il9hdXRoX3VzZXJfaGFzaCI6ImI2MTcwNGUyZTUxZWE0ZjM5YmQ4NjgwOTc2NTg4NTYwODQzMWMxNzkiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0="
+        "expire_date": "2015-08-05T14:50:49.396Z",
+        "session_data": "ZWFkMWJmYThkYmM2MjMxZDk2OTJmODZmYjFhOTZkYTRhZGM1OGRmNDp7Il9hdXRoX3VzZXJfaGFzaCI6IjU1ZTZkMmE0ZWZkMjMyMmNkZWVkZWFjZjNiYjg0NmIwMTM5NDJjMTAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0="
     },
     "model": "sessions.session",
-    "pk": "5t60xi9laosglzba4r80msqb1brsefpx"
-},
-{
-    "fields": {
-        "first_name": "Bread",
-        "description": "for eating",
-        "price": 7.6,
-        "modified_at": "2015-07-06",
-        "slug": "Black-usual",
-        "created_at": "2015-07-06"
-    },
-    "model": "products.product",
-    "pk": 1
+    "pk": "osvie5h1986s5mdwqui4n1lvrmg8f76w"
 },
 {
     "fields": {
         "first_name": "Meat",
-        "description": "for eating",
-        "price": 79.2,
-        "modified_at": null,
+        "description": "Beef-meat",
+        "price": "100.34",
+        "modified_at": "2015-07-22",
         "slug": "Beef-meat",
-        "created_at": "2015-07-06"
+        "created_at": "2015-07-22"
     },
     "model": "products.product",
     "pk": 2
 },
 {
     "fields": {
-        "first_name": "Sauce",
-        "description": "sauce for meat",
-        "price": 12.3,
-        "modified_at": null,
-        "slug": "red",
-        "created_at": "2015-07-06"
+        "first_name": "\u043e\u0433\u0456\u0440\u043a\u0438",
+        "description": "\u0433\u0440\u0443\u043d\u0442\u043e\u0432\u0456 \u043e\u0433\u0456\u0440\u043a\u0438",
+        "price": "17.80",
+        "modified_at": "2015-07-22",
+        "slug": "\u0433\u0440\u0443\u043d\u0442\u043e\u0432\u0456 \u043e\u0433\u0456\u0440\u043a\u0438",
+        "created_at": "2015-07-22"
     },
     "model": "products.product",
     "pk": 3
 },
 {
     "fields": {
-        "first_name": "Product",
-        "description": "some product",
-        "price": 87.0,
-        "modified_at": null,
-        "slug": "some-product",
-        "created_at": "2015-07-06"
+        "first_name": "\u043a\u0430\u0440\u0442\u043e\u0448\u043a\u0430",
+        "description": "\u0431\u0456\u043b\u0430",
+        "price": "23.69",
+        "modified_at": "2015-07-22",
+        "slug": "afsaf",
+        "created_at": "2015-07-22"
     },
     "model": "products.product",
     "pk": 4
 },
 {
     "fields": {
-        "first_name": "cucumbers",
-        "description": "for salat",
-        "price": 12.3,
-        "modified_at": null,
-        "slug": "ground-cucumbers",
-        "created_at": "2015-07-06"
+        "first_name": "\u043f\u043e\u043c\u0456\u0434\u043e\u0440\u0438",
+        "description": "\u0425\u0435\u0440\u0441\u043e\u043d",
+        "price": "23.62",
+        "modified_at": "2015-07-22",
+        "slug": "\u0425\u0435\u0440\u0441\u043e\u043d",
+        "created_at": "2015-07-22"
     },
     "model": "products.product",
     "pk": 5
 },
 {
     "fields": {
-        "first_name": "asdasD",
-        "description": "sqqs",
-        "price": 23.6,
-        "modified_at": null,
-        "slug": "ASDSAD",
-        "created_at": "2015-06-18"
+        "first_name": "\u0448\u0430\u0448\u043b\u0438\u043a",
+        "description": "\u0436\u0430\u0440\u0435\u043d\u0438\u0439",
+        "price": "99.87",
+        "modified_at": "2015-07-22",
+        "slug": "\u0436\u0430\u0440\u0435\u043d\u0438\u0439",
+        "created_at": "2015-07-22"
     },
     "model": "products.product",
     "pk": 6
+},
+{
+    "fields": {
+        "first_name": "\u0433\u0440\u0435\u0447\u043a\u0430",
+        "description": "\u0433\u0440\u0435\u0447\u043a\u0430-\u0437\u0435\u043b\u0435\u043d\u0430",
+        "price": "20.30",
+        "modified_at": "2015-07-22",
+        "slug": "\u0433\u0440\u0435\u0447\u043a\u0430-\u0437\u0435\u043b\u0435\u043d\u0430",
+        "created_at": "2015-07-22"
+    },
+    "model": "products.product",
+    "pk": 7
 },
 {
     "fields": {
@@ -332,12 +332,12 @@
         "is_active": true,
         "is_superuser": true,
         "is_staff": true,
-        "last_login": "2015-07-06T08:13:12.348Z",
+        "last_login": "2015-07-22T14:50:49.293Z",
         "groups": [],
         "user_permissions": [],
-        "password": "pbkdf2_sha256$20000$FC4tQmNP7EiD$bdN5AchXvYZEILwSiL4bWTPaA+iVTYjZwGZt72ZS9Z4=",
+        "password": "pbkdf2_sha256$20000$XwYIJ9MLD5q5$oxiVZSB9L78usWb1Bq66stcr05lx3on2eEq2Ako0fpc=",
         "email": "admin@admin.com",
-        "date_joined": "2015-07-06T04:25:10.319Z"
+        "date_joined": "2015-07-22T14:07:08.498Z"
     },
     "model": "auth.user",
     "pk": 1
@@ -345,8 +345,8 @@
 {
     "fields": {
         "action_flag": 1,
-        "action_time": "2015-07-06T08:14:13.030Z",
-        "object_repr": "Bread Black-usual",
+        "action_time": "2015-07-22T14:52:15.362Z",
+        "object_repr": "Meat Beef-meat",
         "object_id": "1",
         "change_message": "",
         "user": 1,
@@ -357,11 +357,11 @@
 },
 {
     "fields": {
-        "action_flag": 1,
-        "action_time": "2015-07-06T08:15:36.087Z",
-        "object_repr": "Meat Beef-meat",
-        "object_id": "2",
-        "change_message": "",
+        "action_flag": 2,
+        "action_time": "2015-07-22T15:02:21.579Z",
+        "object_repr": "\u043a\u0430\u0440\u0442\u043e\u0448\u043a\u0430 sdfsdf",
+        "object_id": "4",
+        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e slug.",
         "user": 1,
         "content_type": 7
     },
@@ -370,54 +370,15 @@
 },
 {
     "fields": {
-        "action_flag": 1,
-        "action_time": "2015-07-06T08:19:30.444Z",
-        "object_repr": "Sauce red",
-        "object_id": "3",
-        "change_message": "",
+        "action_flag": 2,
+        "action_time": "2015-07-22T15:05:15.629Z",
+        "object_repr": "\u043a\u0430\u0440\u0442\u043e\u0448\u043a\u0430 afsaf",
+        "object_id": "4",
+        "change_message": "\u0417\u043c\u0456\u043d\u0435\u043d\u043e slug.",
         "user": 1,
         "content_type": 7
     },
     "model": "admin.logentry",
     "pk": 3
-},
-{
-    "fields": {
-        "action_flag": 1,
-        "action_time": "2015-07-06T08:20:27.279Z",
-        "object_repr": "Product some-product",
-        "object_id": "4",
-        "change_message": "",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 4
-},
-{
-    "fields": {
-        "action_flag": 1,
-        "action_time": "2015-07-06T08:20:58.764Z",
-        "object_repr": "cucumbers ground-cucumbers",
-        "object_id": "5",
-        "change_message": "",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 5
-},
-{
-    "fields": {
-        "action_flag": 2,
-        "action_time": "2015-07-06T08:29:35.073Z",
-        "object_repr": "asdasD ASDSAD",
-        "object_id": "6",
-        "change_message": "Changed description.",
-        "user": 1,
-        "content_type": 7
-    },
-    "model": "admin.logentry",
-    "pk": 6
 }
 ]

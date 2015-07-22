@@ -49,7 +49,7 @@ def products_add(request):
             errors = {}
 
             # data for product object
-            data = {'modified_at': request.POST.get('modified_at')}
+            data = {'modified_at': request.POST.get('modified_at'), 'created_at': request.POST.get('created_at')}
             # data = {'middle_name': request.POST.get('middle_name'),
             #     'notes': request.POST.get('notes')}
 
@@ -72,16 +72,16 @@ def products_add(request):
             else:
                 data['description'] = slug
 
-            created_at = request.POST.get('created_at', '').strip()
-            if not created_at:
-                errors['created_at'] = u"Дата створення"
-            else:
-                try:
-                    datetime.strptime(created_at, '%Y-%m-%d')
-                except Exception:
-                    errors['created_at'] = u"Введіть коректний формат дати (Напр. 2015-07-06)"
-                else:
-                    data['created_at'] = created_at
+            # created_at = request.POST.get('created_at', '').strip()
+            # if not created_at:
+            #     errors['created_at'] = u"Дата створення"
+            # else:
+            #     try:
+            #         datetime.strptime(created_at, '%Y-%m-%d')
+            #     except Exception:
+            #         errors['created_at'] = u"Введіть коректний формат дати (Напр. 2015-07-06)"
+            #     else:
+            #         data['created_at'] = created_at
 
             price = request.POST.get('price', '').strip()
             if not price:
@@ -114,7 +114,7 @@ def products_add(request):
 class ProductUpdateView(UpdateView):
     model = Product
     template_name = 'products/products_edit.html'
-    fields = ['first_name', 'slug', 'description', 'price', 'created_at', 'modified_at']
+    fields = ['first_name', 'slug', 'description', 'price']
 
     def get_success_url(self):
         return u'%s?status_message=Продукт успішно збережено!' % reverse('products')
